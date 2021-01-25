@@ -1,0 +1,60 @@
+{
+  "name": "Pelicula",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "duracion",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "detalle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "genero",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "clasifiacion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "fechaComienzo",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "fechaFinalizacion",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "proyeccion",
+      "otherEntityRelationshipName": "pelicula",
+      "relationshipName": "proyeccion"
+    }
+  ],
+  "changelogDate": "20201221225819",
+  "entityTableName": "pelicula",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eduardo"]
+}

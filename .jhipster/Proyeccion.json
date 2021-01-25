@@ -1,0 +1,54 @@
+{
+  "name": "Proyeccion",
+  "fields": [
+    {
+      "fieldName": "horaProyeccion",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "fechaComienzo",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "fechaFinalizacion",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "butaca",
+      "otherEntityRelationshipName": "proyeccion",
+      "relationshipName": "butaca"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pelicula",
+      "otherEntityRelationshipName": "proyeccion",
+      "relationshipName": "pelicula",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "sala",
+      "otherEntityRelationshipName": "proyeccion",
+      "relationshipName": "sala",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20201221230019",
+  "entityTableName": "proyeccion",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["cinemacenter"]
+}

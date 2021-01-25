@@ -1,0 +1,40 @@
+{
+  "name": "Sala",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "filas",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "asientos",
+      "fieldType": "Integer"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "proyeccion",
+      "otherEntityRelationshipName": "sala",
+      "relationshipName": "proyeccion"
+    }
+  ],
+  "changelogDate": "20201221225919",
+  "entityTableName": "sala",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": ["eduardo"]
+}
