@@ -110,19 +110,15 @@ public class ProyeccionResource {
         //return proyeccionRepository.findAll();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM. yyyy");
        	LocalDate localDate = LocalDate.now();
-       	//String date = formatter.format(localDate);
-       	String hoy = "21 ene. 2021";
-       	LocalDate fecha = LocalDate.parse(hoy, formatter);
-       	
-        List<Proyeccion> totaldeproyecciones = new ArrayList<Proyeccion>();
+       	List<Proyeccion> totaldeproyecciones = new ArrayList<Proyeccion>();
         List<Proyeccion> proyeccioneshoy = new ArrayList<Proyeccion>();
         totaldeproyecciones = proyeccionRepository.findAll();
+        System.out.println("Hoy : "+localDate);
         for (int i = 0; i < totaldeproyecciones.size(); i++) {
-        	//if((totaldeproyecciones.get(i).isEstado()== true) && (totaldeproyecciones.get(i).getFechaComienzo() == date)) {
-        	if(totaldeproyecciones.get(i).getFechaComienzo() == fecha) {
+        	int valor=localDate.compareTo(totaldeproyecciones.get(i).getFechaComienzo());
+        	if(totaldeproyecciones.get(i).isEstado()== true && valor == 0) {
         		proyeccioneshoy.add(totaldeproyecciones.get(i));
-        		//log.debug(date);
-        		//System. out. println(date);
+        	
             }
         }
         return  proyeccioneshoy ;
@@ -137,8 +133,7 @@ public class ProyeccionResource {
         for (int i = 0; i < totaldeproyecciones.size(); i++) {
         	if((totaldeproyecciones.get(i).isEstado()== true)) {
         		proyeccionesporestado.add(totaldeproyecciones.get(i));
-        		//log.debug(date);
-        		//System. out. println(date);
+        		
             }
         }
         return proyeccionesporestado;

@@ -128,17 +128,16 @@ public class PeliculaResource {
         return pelicula;
     }
     @GetMapping("/peliculas/peliculasporango/{id}/{inicio}/{fin}")
-    public List<Pelicula> getpeliculasPorFecha(@PathVariable Long id,@PathVariable LocalDate inicio,@PathVariable LocalDate fin) {
+    public List<Proyeccion> getpeliculasPorFecha(@PathVariable Long id,@PathVariable LocalDate inicio,@PathVariable LocalDate fin) {
         log.debug("REST request to get Proyeccion : {0} {1} {2}",id, inicio,fin);
         List<Proyeccion> proyecciones = proyeccionService.buscarPorFecha(inicio, fin);
-        List<Pelicula> pelicula= new ArrayList<>();
+        List<Proyeccion> proyecciones2= new ArrayList<>();
         for (int i = 0; i < proyecciones.size() ; i++) {
         	if(proyecciones.get(i).getPelicula().getId() == id) {
-        		//pelicula.add(proyecciones.get(i).getHoraProyeccion());
-        		pelicula.add(proyecciones.get(i).getPelicula());
+        		proyecciones2.add(proyecciones.get(i));
         	}
         }
-        return pelicula;
+        return proyecciones2;
     }
 
     /**
