@@ -1,0 +1,31 @@
+{
+  "cinemacenterApp": {
+    "pelicula": {
+      "home": {
+        "title": "Peliculas",
+        "createLabel": "Criar novo Pelicula",
+        "createOrEditLabel": "Criar ou editar Pelicula",
+        "notFound": "Nenhum Pelicula encontrado"
+      },
+      "created": "Um novo Pelicula foi criado com o identificador {{ param }}",
+      "updated": "Um Pelicula foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Pelicula foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Pelicula {{ id }}?"
+      },
+      "detail": {
+        "title": "Pelicula"
+      },
+      "nombre": "Nombre",
+      "duracion": "Duracion",
+      "descripcion": "Descripcion",
+      "detalle": "Detalle",
+      "genero": "Genero",
+      "clasifiacion": "Clasifiacion",
+      "estado": "Estado",
+      "fechaComienzo": "Fecha Comienzo",
+      "fechaFinalizacion": "Fecha Finalizacion",
+      "proyeccion": "Proyeccion"
+    }
+  }
+}

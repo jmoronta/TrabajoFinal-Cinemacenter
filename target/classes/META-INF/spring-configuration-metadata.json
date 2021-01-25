@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {
+      "name": "application",
+      "type": "ar.edu.um.programacion2.cinemacenter.config.ApplicationProperties",
+      "sourceType": "ar.edu.um.programacion2.cinemacenter.config.ApplicationProperties"
+    },
+    {
+      "name": "spring.datasource.hikari",
+      "type": "javax.sql.DataSource",
+      "sourceType": "ar.edu.um.programacion2.cinemacenter.config.CloudDatabaseConfiguration",
+      "sourceMethod": "public javax.sql.DataSource dataSource(org.springframework.cache.CacheManager) "
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

@@ -1,0 +1,28 @@
+{
+  "cinemacenterApp": {
+    "proyeccion": {
+      "home": {
+        "title": "Proyeccions",
+        "createLabel": "Create a new Proyeccion",
+        "createOrEditLabel": "Create or edit a Proyeccion",
+        "notFound": "No Proyeccions found"
+      },
+      "created": "A new Proyeccion is created with identifier {{ param }}",
+      "updated": "A Proyeccion is updated with identifier {{ param }}",
+      "deleted": "A Proyeccion is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Proyeccion {{ id }}?"
+      },
+      "detail": {
+        "title": "Proyeccion"
+      },
+      "horaProyeccion": "Hora Proyeccion",
+      "estado": "Estado",
+      "fechaComienzo": "Fecha Comienzo",
+      "fechaFinalizacion": "Fecha Finalizacion",
+      "butaca": "Butaca",
+      "pelicula": "Pelicula",
+      "sala": "Sala"
+    }
+  }
+}

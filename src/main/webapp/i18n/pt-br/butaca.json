@@ -1,0 +1,26 @@
+{
+  "cinemacenterApp": {
+    "butaca": {
+      "home": {
+        "title": "Butacas",
+        "createLabel": "Criar novo Butaca",
+        "createOrEditLabel": "Criar ou editar Butaca",
+        "notFound": "Nenhum Butaca encontrado"
+      },
+      "created": "Um novo Butaca foi criado com o identificador {{ param }}",
+      "updated": "Um Butaca foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Butaca foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Butaca {{ id }}?"
+      },
+      "detail": {
+        "title": "Butaca"
+      },
+      "fechaVenta": "Fecha Venta",
+      "fila": "Fila",
+      "asiento": "Asiento",
+      "estado": "Estado",
+      "proyeccion": "Proyeccion"
+    }
+  }
+}

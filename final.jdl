@@ -1,0 +1,64 @@
+application {
+  config {
+    packageName ar.edu.um.programacion2.cinemacenter
+    baseName cinemacenter 
+    nativeLanguage es
+    applicationType monolith
+    serverPort 8080
+    authenticationType jwt
+    cacheProvider hazelcast
+    enableHibernateCache true
+    websocket false
+    databaseType sql
+    devDatabaseType h2Disk
+    prodDatabaseType mysql
+    searchEngine false
+    messageBroker false
+    enableSwaggerCodegen false
+    useSass true
+    clientPackageManager npm
+    clientFramework angularX
+    clientTheme cerulean
+    clientThemeVariant primary
+    jhiPrefix jhi
+    dtoSuffix DTO
+    enableTranslation true
+    nativeLanguage es
+    languages [ es, en, pt-br ]
+  }
+  entities Pelicula, Sala, Proyeccion, Butaca
+}
+entity Pelicula {
+    nombre String,
+    duracion Integer,
+    descripcion String,
+    detalle String,
+    genero String,
+    clasifiacion String,
+    estado Boolean,
+    fechaComienzo LocalDate,
+    fechaFinalizacion LocalDate
+}
+entity Sala {
+    nombre String,
+    estado Integer,
+    filas Integer,
+    asientos Integer,
+}
+entity Proyeccion{
+	HoraProyeccion ZonedDateTime,
+	estado Boolean,
+	fechaComienzo LocalDate,
+    	fechaFinalizacion LocalDate
+}
+entity Butaca{
+    fechaVenta LocalDate,
+    fila Integer,
+    asiento Integer,
+    estado Boolean
+}
+relationship OneToMany{
+    Pelicula{proyeccion} to Proyeccion,
+    Sala{proyeccion} to Proyeccion,
+    Proyeccion{butaca} to Butaca
+}
