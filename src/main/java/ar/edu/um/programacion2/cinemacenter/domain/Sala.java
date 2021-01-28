@@ -27,7 +27,7 @@ public class Sala implements Serializable {
     private String nombre;
 
     @Column(name = "estado")
-    private Integer estado;
+    private Boolean estado;
 
     @Column(name = "filas")
     private Integer filas;
@@ -38,6 +38,10 @@ public class Sala implements Serializable {
     @OneToMany(mappedBy = "sala")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Proyeccion> proyeccions = new HashSet<>();
+
+    @OneToMany(mappedBy = "sala")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<Butaca> butacas = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -61,16 +65,16 @@ public class Sala implements Serializable {
         this.nombre = nombre;
     }
 
-    public Integer getEstado() {
+    public Boolean getEstado() {
         return estado;
     }
 
-    public Sala estado(Integer estado) {
+    public Sala estado(Boolean estado) {
         this.estado = estado;
         return this;
     }
 
-    public void setEstado(Integer estado) {
+    public void setEstado(Boolean estado) {
         this.estado = estado;
     }
 
@@ -123,6 +127,31 @@ public class Sala implements Serializable {
 
     public void setProyeccions(Set<Proyeccion> proyeccions) {
         this.proyeccions = proyeccions;
+    }
+
+    public Set<Butaca> getButacas() {
+        return butacas;
+    }
+
+    public Sala butacas(Set<Butaca> butacas) {
+        this.butacas = butacas;
+        return this;
+    }
+
+    public Sala addButaca(Butaca butaca) {
+        this.butacas.add(butaca);
+        butaca.setSala(this);
+        return this;
+    }
+
+    public Sala removeButaca(Butaca butaca) {
+        this.butacas.remove(butaca);
+        butaca.setSala(null);
+        return this;
+    }
+
+    public void setButacas(Set<Butaca> butacas) {
+        this.butacas = butacas;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

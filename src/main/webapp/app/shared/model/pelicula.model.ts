@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
 import { IProyeccion } from 'app/shared/model/proyeccion.model';
+import { IVenta } from 'app/shared/model/venta.model';
 
 export interface IPelicula {
   id?: number;
@@ -13,6 +14,7 @@ export interface IPelicula {
   fechaComienzo?: Moment;
   fechaFinalizacion?: Moment;
   proyeccions?: IProyeccion[];
+  ventas?: IVenta[];
 }
 
 export class Pelicula implements IPelicula {
@@ -27,7 +29,8 @@ export class Pelicula implements IPelicula {
     public estado?: boolean,
     public fechaComienzo?: Moment,
     public fechaFinalizacion?: Moment,
-    public proyeccions?: IProyeccion[]
+    public proyeccions?: IProyeccion[],
+    public ventas?: IVenta[]
   ) {
     this.estado = this.estado || false;
   }

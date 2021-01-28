@@ -42,6 +42,10 @@ public class Proyeccion implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Butaca> butacas = new HashSet<>();
 
+    @OneToMany(mappedBy = "proyeccion")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<Venta> ventas = new HashSet<>();
+
     @ManyToOne
     @JsonIgnoreProperties(value = "proyeccions", allowSetters = true)
     private Pelicula pelicula;
@@ -134,6 +138,31 @@ public class Proyeccion implements Serializable {
 
     public void setButacas(Set<Butaca> butacas) {
         this.butacas = butacas;
+    }
+
+    public Set<Venta> getVentas() {
+        return ventas;
+    }
+
+    public Proyeccion ventas(Set<Venta> ventas) {
+        this.ventas = ventas;
+        return this;
+    }
+
+    public Proyeccion addVenta(Venta venta) {
+        this.ventas.add(venta);
+        venta.setProyeccion(this);
+        return this;
+    }
+
+    public Proyeccion removeVenta(Venta venta) {
+        this.ventas.remove(venta);
+        venta.setProyeccion(null);
+        return this;
+    }
+
+    public void setVentas(Set<Venta> ventas) {
+        this.ventas = ventas;
     }
 
     public Pelicula getPelicula() {

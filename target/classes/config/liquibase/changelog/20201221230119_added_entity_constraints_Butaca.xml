@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="proyeccion"/>
 
+        <addForeignKeyConstraint baseColumnNames="sala_id"
+                                 baseTableName="butaca"
+                                 constraintName="fk_butaca_sala_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sala"/>
+
     </changeSet>
 </databaseChangeLog>

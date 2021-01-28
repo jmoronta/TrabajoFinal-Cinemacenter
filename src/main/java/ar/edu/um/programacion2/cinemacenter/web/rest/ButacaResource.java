@@ -2,12 +2,14 @@ package ar.edu.um.programacion2.cinemacenter.web.rest;
 
 import ar.edu.um.programacion2.cinemacenter.domain.Butaca;
 import ar.edu.um.programacion2.cinemacenter.repository.ButacaRepository;
+import ar.edu.um.programacion2.cinemacenter.service.ButacaService;
 import ar.edu.um.programacion2.cinemacenter.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,12 +31,14 @@ public class ButacaResource {
     private final Logger log = LoggerFactory.getLogger(ButacaResource.class);
 
     private static final String ENTITY_NAME = "butaca";
+    @Autowired
+    private ButacaService butacaService;
 
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
-
+    @Autowired
     private final ButacaRepository butacaRepository;
-
+    
     public ButacaResource(ButacaRepository butacaRepository) {
         this.butacaRepository = butacaRepository;
     }
@@ -89,7 +93,7 @@ public class ButacaResource {
         log.debug("REST request to get all Butacas");
         return butacaRepository.findAll();
     }
-
+    
     /**
      * {@code GET  /butacas/:id} : get the "id" butaca.
      *
@@ -102,7 +106,13 @@ public class ButacaResource {
         Optional<Butaca> butaca = butacaRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(butaca);
     }
-
+    
+    @GetMapping("/butacas/estado/{estado}")
+    public List<Butaca> getButaca(@PathVariable Boolean estado) {
+        log.debug("REST request to get Butaca : {}", estado);
+        List<Butaca> butaca = butacaService.findByEstado(estado);
+        return butaca;
+    }
     /**
      * {@code DELETE  /butacas/:id} : delete the "id" butaca.
      *

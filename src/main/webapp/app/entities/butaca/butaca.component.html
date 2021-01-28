@@ -28,6 +28,7 @@
                     <th scope="col" ><span jhiTranslate="cinemacenterApp.butaca.asiento">Asiento</span></th>
                     <th scope="col" ><span jhiTranslate="cinemacenterApp.butaca.estado">Estado</span></th>
                     <th scope="col" ><span jhiTranslate="cinemacenterApp.butaca.proyeccion">Proyeccion</span></th>
+                    <th scope="col" ><span jhiTranslate="cinemacenterApp.butaca.sala">Sala</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -41,6 +42,11 @@
                     <td>
                         <div *ngIf="butaca.proyeccion">
                             <a [routerLink]="['/proyeccion', butaca.proyeccion?.id, 'view']" >{{ butaca.proyeccion?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="butaca.sala">
+                            <a [routerLink]="['/sala', butaca.sala?.id, 'view']" >{{ butaca.sala?.id }}</a>
                         </div>
                     </td>
                     <td class="text-right">

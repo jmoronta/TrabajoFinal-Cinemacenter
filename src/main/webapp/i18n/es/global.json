@@ -11,6 +11,7 @@
         "sala": "Sala",
         "proyeccion": "Proyeccion",
         "butaca": "Butaca",
+        "venta": "Venta",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

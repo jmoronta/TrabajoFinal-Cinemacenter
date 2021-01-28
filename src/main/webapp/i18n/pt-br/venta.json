@@ -1,0 +1,25 @@
+{
+  "cinemacenterApp": {
+    "venta": {
+      "home": {
+        "title": "Ventas",
+        "createLabel": "Criar novo Venta",
+        "createOrEditLabel": "Criar ou editar Venta",
+        "notFound": "Nenhum Venta encontrado"
+      },
+      "created": "Um novo Venta foi criado com o identificador {{ param }}",
+      "updated": "Um Venta foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Venta foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Venta {{ id }}?"
+      },
+      "detail": {
+        "title": "Venta"
+      },
+      "fechaVenta": "Fecha Venta",
+      "butaca": "Butaca",
+      "proyeccion": "Proyeccion",
+      "pelicula": "Pelicula"
+    }
+  }
+}

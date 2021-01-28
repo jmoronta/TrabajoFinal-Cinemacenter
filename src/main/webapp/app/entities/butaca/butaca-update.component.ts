@@ -9,6 +9,10 @@ import { IButaca, Butaca } from 'app/shared/model/butaca.model';
 import { ButacaService } from './butaca.service';
 import { IProyeccion } from 'app/shared/model/proyeccion.model';
 import { ProyeccionService } from 'app/entities/proyeccion/proyeccion.service';
+import { ISala } from 'app/shared/model/sala.model';
+import { SalaService } from 'app/entities/sala/sala.service';
+
+type SelectableEntity = IProyeccion | ISala;
 
 @Component({
   selector: 'jhi-butaca-update',
@@ -17,6 +21,7 @@ import { ProyeccionService } from 'app/entities/proyeccion/proyeccion.service';
 export class ButacaUpdateComponent implements OnInit {
   isSaving = false;
   proyeccions: IProyeccion[] = [];
+  salas: ISala[] = [];
   fechaVentaDp: any;
 
   editForm = this.fb.group({
@@ -26,11 +31,13 @@ export class ButacaUpdateComponent implements OnInit {
     asiento: [],
     estado: [],
     proyeccion: [],
+    sala: [],
   });
 
   constructor(
     protected butacaService: ButacaService,
     protected proyeccionService: ProyeccionService,
+    protected salaService: SalaService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -40,6 +47,8 @@ export class ButacaUpdateComponent implements OnInit {
       this.updateForm(butaca);
 
       this.proyeccionService.query().subscribe((res: HttpResponse<IProyeccion[]>) => (this.proyeccions = res.body || []));
+
+      this.salaService.query().subscribe((res: HttpResponse<ISala[]>) => (this.salas = res.body || []));
     });
   }
 
@@ -51,6 +60,7 @@ export class ButacaUpdateComponent implements OnInit {
       asiento: butaca.asiento,
       estado: butaca.estado,
       proyeccion: butaca.proyeccion,
+      sala: butaca.sala,
     });
   }
 
@@ -77,6 +87,7 @@ export class ButacaUpdateComponent implements OnInit {
       asiento: this.editForm.get(['asiento'])!.value,
       estado: this.editForm.get(['estado'])!.value,
       proyeccion: this.editForm.get(['proyeccion'])!.value,
+      sala: this.editForm.get(['sala'])!.value,
     };
   }
 
@@ -96,7 +107,7 @@ export class ButacaUpdateComponent implements OnInit {
     this.isSaving = false;
   }
 
-  trackById(index: number, item: IProyeccion): any {
+  trackById(index: number, item: SelectableEntity): any {
     return item.id;
   }
 }

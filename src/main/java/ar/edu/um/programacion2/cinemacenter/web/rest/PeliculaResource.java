@@ -9,8 +9,6 @@ import ar.edu.um.programacion2.cinemacenter.web.rest.errors.BadRequestAlertExcep
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
-import lombok.extern.slf4j.Slf4j;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +30,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 @Transactional
-@Slf4j
+
 public class PeliculaResource {
 
     private final Logger log = LoggerFactory.getLogger(PeliculaResource.class);

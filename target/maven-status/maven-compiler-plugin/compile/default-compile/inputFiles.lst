@@ -2,6 +2,7 @@
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/security/SpringSecurityAuditorAware.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/service/mapper/UserMapper.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/security/jwt/JWTFilter.java
+/home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/web/rest/VentaResource.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/web/rest/errors/InvalidPasswordException.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/repository/CustomAuditEventRepository.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/security/DomainUserDetailsService.java
@@ -15,6 +16,7 @@
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/domain/package-info.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/service/UsernameAlreadyUsedException.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/web/rest/vm/KeyAndPasswordVM.java
+/home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/service/ButacaService.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/repository/package-info.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/repository/ProyeccionRepository.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/domain/User.java
@@ -36,9 +38,11 @@
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/domain/Butaca.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/config/audit/package-info.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/web/rest/errors/EmailAlreadyUsedException.java
+/home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/repository/VentaRepository.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/service/MailService.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/config/DateTimeFormatConfiguration.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/web/rest/PeliculaResource.java
+/home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/service/VentaService.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/config/Constants.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/service/EmailAlreadyUsedException.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/service/ProyeccionService.java
@@ -72,6 +76,7 @@
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/repository/ButacaRepository.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/repository/PersistenceAuditEventRepository.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/web/rest/AuditResource.java
+/home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/domain/Venta.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/web/rest/errors/FieldErrorVM.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/web/rest/ClientForwardController.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/config/SecurityConfiguration.java

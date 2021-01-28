@@ -25,7 +25,8 @@
       "estado": "Estado",
       "fechaComienzo": "Fecha Comienzo",
       "fechaFinalizacion": "Fecha Finalizacion",
-      "proyeccion": "Proyeccion"
+      "proyeccion": "Proyeccion",
+      "venta": "Venta"
     }
   }
 }

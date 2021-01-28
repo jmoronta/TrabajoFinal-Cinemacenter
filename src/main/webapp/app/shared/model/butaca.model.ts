@@ -1,5 +1,7 @@
 import { Moment } from 'moment';
+import { IVenta } from 'app/shared/model/venta.model';
 import { IProyeccion } from 'app/shared/model/proyeccion.model';
+import { ISala } from 'app/shared/model/sala.model';
 
 export interface IButaca {
   id?: number;
@@ -7,7 +9,9 @@ export interface IButaca {
   fila?: number;
   asiento?: number;
   estado?: boolean;
+  ventas?: IVenta[];
   proyeccion?: IProyeccion;
+  sala?: ISala;
 }
 
 export class Butaca implements IButaca {
@@ -17,7 +21,9 @@ export class Butaca implements IButaca {
     public fila?: number,
     public asiento?: number,
     public estado?: boolean,
-    public proyeccion?: IProyeccion
+    public ventas?: IVenta[],
+    public proyeccion?: IProyeccion,
+    public sala?: ISala
   ) {
     this.estado = this.estado || false;
   }

@@ -32,8 +32,8 @@ public class SalaResourceIT {
     private static final String DEFAULT_NOMBRE = "AAAAAAAAAA";
     private static final String UPDATED_NOMBRE = "BBBBBBBBBB";
 
-    private static final Integer DEFAULT_ESTADO = 1;
-    private static final Integer UPDATED_ESTADO = 2;
+    private static final Boolean DEFAULT_ESTADO = Boolean.FALSE;
+    private static final Boolean UPDATED_ESTADO = Boolean.TRUE;
 
     private static final Integer DEFAULT_FILAS = 1;
     private static final Integer UPDATED_FILAS = 2;

@@ -15,6 +15,7 @@ public abstract class Pelicula_ {
 	public static volatile SetAttribute<Pelicula, Proyeccion> proyeccions;
 	public static volatile SingularAttribute<Pelicula, String> genero;
 	public static volatile SingularAttribute<Pelicula, Integer> duracion;
+	public static volatile SetAttribute<Pelicula, Venta> ventas;
 	public static volatile SingularAttribute<Pelicula, LocalDate> fechaComienzo;
 	public static volatile SingularAttribute<Pelicula, Long> id;
 	public static volatile SingularAttribute<Pelicula, String> clasifiacion;
@@ -27,6 +28,7 @@ public abstract class Pelicula_ {
 	public static final String PROYECCIONS = "proyeccions";
 	public static final String GENERO = "genero";
 	public static final String DURACION = "duracion";
+	public static final String VENTAS = "ventas";
 	public static final String FECHA_COMIENZO = "fechaComienzo";
 	public static final String ID = "id";
 	public static final String CLASIFIACION = "clasifiacion";

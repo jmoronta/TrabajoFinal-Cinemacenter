@@ -1,4 +1,5 @@
 /home/kbza/Programacion2/Trabajo Final/src/test/java/ar/edu/um/programacion2/cinemacenter/repository/CustomAuditEventRepositoryIT.java
+/home/kbza/Programacion2/Trabajo Final/src/test/java/ar/edu/um/programacion2/cinemacenter/web/rest/VentaResourceIT.java
 /home/kbza/Programacion2/Trabajo Final/src/test/java/ar/edu/um/programacion2/cinemacenter/repository/timezone/DateTimeWrapperRepository.java
 /home/kbza/Programacion2/Trabajo Final/src/test/java/ar/edu/um/programacion2/cinemacenter/config/NoOpMailConfiguration.java
 /home/kbza/Programacion2/Trabajo Final/src/test/java/ar/edu/um/programacion2/cinemacenter/domain/ButacaTest.java
@@ -19,6 +20,7 @@
 /home/kbza/Programacion2/Trabajo Final/src/test/java/ar/edu/um/programacion2/cinemacenter/web/rest/TestUtil.java
 /home/kbza/Programacion2/Trabajo Final/src/test/java/ar/edu/um/programacion2/cinemacenter/config/timezone/HibernateTimeZoneIT.java
 /home/kbza/Programacion2/Trabajo Final/src/test/java/ar/edu/um/programacion2/cinemacenter/web/rest/AuditResourceIT.java
+/home/kbza/Programacion2/Trabajo Final/src/test/java/ar/edu/um/programacion2/cinemacenter/domain/VentaTest.java
 /home/kbza/Programacion2/Trabajo Final/src/test/java/ar/edu/um/programacion2/cinemacenter/ArchTest.java
 /home/kbza/Programacion2/Trabajo Final/src/test/java/ar/edu/um/programacion2/cinemacenter/web/rest/UserResourceIT.java
 /home/kbza/Programacion2/Trabajo Final/src/test/java/ar/edu/um/programacion2/cinemacenter/security/DomainUserDetailsServiceIT.java

@@ -20,7 +20,9 @@
       "fila": "Fila",
       "asiento": "Asiento",
       "estado": "Estado",
-      "proyeccion": "Proyeccion"
+      "venta": "Venta",
+      "proyeccion": "Proyeccion",
+      "sala": "Sala"
     }
   }
 }

@@ -14,6 +14,7 @@ public abstract class Proyeccion_ {
 	public static volatile SingularAttribute<Proyeccion, Boolean> estado;
 	public static volatile SingularAttribute<Proyeccion, Pelicula> pelicula;
 	public static volatile SingularAttribute<Proyeccion, Sala> sala;
+	public static volatile SetAttribute<Proyeccion, Venta> ventas;
 	public static volatile SingularAttribute<Proyeccion, LocalDate> fechaComienzo;
 	public static volatile SingularAttribute<Proyeccion, Long> id;
 	public static volatile SingularAttribute<Proyeccion, ZonedDateTime> horaProyeccion;
@@ -23,6 +24,7 @@ public abstract class Proyeccion_ {
 	public static final String ESTADO = "estado";
 	public static final String PELICULA = "pelicula";
 	public static final String SALA = "sala";
+	public static final String VENTAS = "ventas";
 	public static final String FECHA_COMIENZO = "fechaComienzo";
 	public static final String ID = "id";
 	public static final String HORA_PROYECCION = "horaProyeccion";

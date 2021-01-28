@@ -30,6 +30,12 @@
                         <a [routerLink]="['/proyeccion', butaca.proyeccion?.id, 'view']">{{ butaca.proyeccion?.id }}</a>
                     </div>
                 </dd>
+                <dt><span jhiTranslate="cinemacenterApp.butaca.sala">Sala</span></dt>
+                <dd>
+                    <div *ngIf="butaca.sala">
+                        <a [routerLink]="['/sala', butaca.sala?.id, 'view']">{{ butaca.sala?.id }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

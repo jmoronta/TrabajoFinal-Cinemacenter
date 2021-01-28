@@ -1,8 +1,6 @@
 package ar.edu.um.programacion2.cinemacenter.web.rest;
 
-import ar.edu.um.programacion2.cinemacenter.domain.Pelicula;
 import ar.edu.um.programacion2.cinemacenter.domain.Proyeccion;
-import ar.edu.um.programacion2.cinemacenter.repository.PeliculaRepository;
 import ar.edu.um.programacion2.cinemacenter.repository.ProyeccionRepository;
 import ar.edu.um.programacion2.cinemacenter.service.PeliculaService;
 import ar.edu.um.programacion2.cinemacenter.service.ProyeccionService;
@@ -10,8 +8,6 @@ import ar.edu.um.programacion2.cinemacenter.web.rest.errors.BadRequestAlertExcep
 
 import io.github.jhipster.web.util.HeaderUtil;
 import io.github.jhipster.web.util.ResponseUtil;
-import lombok.extern.slf4j.Slf4j;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -34,7 +29,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/api")
 @Transactional
-@Slf4j 
+
 public class ProyeccionResource {
 
     private final Logger log = LoggerFactory.getLogger(ProyeccionResource.class);
@@ -107,9 +102,7 @@ public class ProyeccionResource {
     @GetMapping("/proyeccions/proyeccioneshoy/")
     public List<Proyeccion> getAllProyeccionhoy() {
         log.debug("REST request to get all Proyeccions");
-        //return proyeccionRepository.findAll();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MM. yyyy");
-       	LocalDate localDate = LocalDate.now();
+        LocalDate localDate = LocalDate.now();
        	List<Proyeccion> totaldeproyecciones = new ArrayList<Proyeccion>();
         List<Proyeccion> proyeccioneshoy = new ArrayList<Proyeccion>();
         totaldeproyecciones = proyeccionRepository.findAll();

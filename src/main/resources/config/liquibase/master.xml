@@ -18,9 +18,11 @@
     <include file="config/liquibase/changelog/20201221225919_added_entity_Sala.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201221230019_added_entity_Proyeccion.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201221230119_added_entity_Butaca.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210127141922_added_entity_Venta.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20201221230019_added_entity_constraints_Proyeccion.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20201221230119_added_entity_constraints_Butaca.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210127141922_added_entity_constraints_Venta.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
 </databaseChangeLog>

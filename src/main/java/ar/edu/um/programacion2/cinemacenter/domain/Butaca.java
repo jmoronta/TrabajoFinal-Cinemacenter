@@ -8,6 +8,8 @@ import javax.persistence.*;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * A Butaca.
@@ -35,9 +37,17 @@ public class Butaca implements Serializable {
     @Column(name = "estado")
     private Boolean estado;
 
+    @OneToMany(mappedBy = "butaca")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<Venta> ventas = new HashSet<>();
+
     @ManyToOne
     @JsonIgnoreProperties(value = "butacas", allowSetters = true)
     private Proyeccion proyeccion;
+
+    @ManyToOne
+    @JsonIgnoreProperties(value = "butacas", allowSetters = true)
+    private Sala sala;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
@@ -100,6 +110,31 @@ public class Butaca implements Serializable {
         this.estado = estado;
     }
 
+    public Set<Venta> getVentas() {
+        return ventas;
+    }
+
+    public Butaca ventas(Set<Venta> ventas) {
+        this.ventas = ventas;
+        return this;
+    }
+
+    public Butaca addVenta(Venta venta) {
+        this.ventas.add(venta);
+        venta.setButaca(this);
+        return this;
+    }
+
+    public Butaca removeVenta(Venta venta) {
+        this.ventas.remove(venta);
+        venta.setButaca(null);
+        return this;
+    }
+
+    public void setVentas(Set<Venta> ventas) {
+        this.ventas = ventas;
+    }
+
     public Proyeccion getProyeccion() {
         return proyeccion;
     }
@@ -111,6 +146,19 @@ public class Butaca implements Serializable {
 
     public void setProyeccion(Proyeccion proyeccion) {
         this.proyeccion = proyeccion;
+    }
+
+    public Sala getSala() {
+        return sala;
+    }
+
+    public Butaca sala(Sala sala) {
+        this.sala = sala;
+        return this;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

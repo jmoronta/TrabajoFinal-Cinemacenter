@@ -55,6 +55,10 @@ public class Pelicula implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
     private Set<Proyeccion> proyeccions = new HashSet<>();
 
+    @OneToMany(mappedBy = "pelicula")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    private Set<Venta> ventas = new HashSet<>();
+
     // jhipster-needle-entity-add-field - JHipster will add fields here
     public Long getId() {
         return id;
@@ -204,6 +208,31 @@ public class Pelicula implements Serializable {
 
     public void setProyeccions(Set<Proyeccion> proyeccions) {
         this.proyeccions = proyeccions;
+    }
+
+    public Set<Venta> getVentas() {
+        return ventas;
+    }
+
+    public Pelicula ventas(Set<Venta> ventas) {
+        this.ventas = ventas;
+        return this;
+    }
+
+    public Pelicula addVenta(Venta venta) {
+        this.ventas.add(venta);
+        venta.setPelicula(this);
+        return this;
+    }
+
+    public Pelicula removeVenta(Venta venta) {
+        this.ventas.remove(venta);
+        venta.setPelicula(null);
+        return this;
+    }
+
+    public void setVentas(Set<Venta> ventas) {
+        this.ventas = ventas;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 

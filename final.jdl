@@ -26,7 +26,7 @@ application {
     nativeLanguage es
     languages [ es, en, pt-br ]
   }
-  entities Pelicula, Sala, Proyeccion, Butaca
+  entities Pelicula, Sala, Proyeccion, Butaca,Venta
 }
 entity Pelicula {
     nombre String,
@@ -41,7 +41,7 @@ entity Pelicula {
 }
 entity Sala {
     nombre String,
-    estado Integer,
+    estado Boolean,
     filas Integer,
     asientos Integer,
 }
@@ -57,8 +57,16 @@ entity Butaca{
     asiento Integer,
     estado Boolean
 }
+entity Venta{
+    fechaVenta LocalDate    
+}
+
 relationship OneToMany{
     Pelicula{proyeccion} to Proyeccion,
     Sala{proyeccion} to Proyeccion,
-    Proyeccion{butaca} to Butaca
+    Proyeccion{butaca} to Butaca,
+    Sala{butaca} to Butaca,
+    Butaca{venta} to Venta,
+    Proyeccion{venta} to Venta,
+    Pelicula{venta} to Venta
 }
