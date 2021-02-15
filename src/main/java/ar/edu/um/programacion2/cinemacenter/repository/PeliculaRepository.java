@@ -19,4 +19,5 @@ public interface PeliculaRepository extends JpaRepository<Pelicula, Long> {
 
 	public Optional<Pelicula> findAllByNombreLike(String nombre);
     public List<Pelicula> findAllByFechaComienzoBetween(LocalDate inicio, LocalDate fin);
+    public List<Pelicula> findAllByEstado(Boolean estado);
 }

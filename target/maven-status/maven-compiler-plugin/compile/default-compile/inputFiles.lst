@@ -39,6 +39,7 @@
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/config/audit/package-info.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/web/rest/errors/EmailAlreadyUsedException.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/repository/VentaRepository.java
+/home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/service/CantidadProyeccion.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/service/MailService.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/config/DateTimeFormatConfiguration.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/web/rest/PeliculaResource.java
@@ -63,6 +64,7 @@
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/domain/Pelicula.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/service/dto/UserDTO.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/config/DatabaseConfiguration.java
+/home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/service/CantidadVentasPelicula.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/security/AuthoritiesConstants.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/security/UserNotActivatedException.java
 /home/kbza/Programacion2/Trabajo Final/src/main/java/ar/edu/um/programacion2/cinemacenter/service/dto/PasswordChangeDTO.java

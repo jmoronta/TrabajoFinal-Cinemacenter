@@ -124,7 +124,7 @@ public class SalaResource {
     public ResponseEntity<String> deleteSala(@PathVariable Long id) {
         log.debug("REST request to delete Sala : {}", id);
         Optional<Sala> sala = salaRepository.findById(id);
-        if (sala.get().getEstado().equals(1)) {
+        if (sala.get().getEstado().equals(false)) {
             salaRepository.deleteById(id);
             return new ResponseEntity<String>("Se borro satisfactoriamente la sala", HttpStatus.OK);
             //return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString())).build();

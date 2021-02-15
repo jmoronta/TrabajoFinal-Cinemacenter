@@ -1,12 +1,17 @@
 package ar.edu.um.programacion2.cinemacenter.web.rest;
 
 import ar.edu.um.programacion2.cinemacenter.domain.Butaca;
+import ar.edu.um.programacion2.cinemacenter.domain.Pelicula;
 import ar.edu.um.programacion2.cinemacenter.domain.Proyeccion;
 import ar.edu.um.programacion2.cinemacenter.domain.Venta;
 import ar.edu.um.programacion2.cinemacenter.repository.ButacaRepository;
 import ar.edu.um.programacion2.cinemacenter.repository.ProyeccionRepository;
 import ar.edu.um.programacion2.cinemacenter.repository.VentaRepository;
 import ar.edu.um.programacion2.cinemacenter.service.ButacaService;
+import ar.edu.um.programacion2.cinemacenter.service.CantidadProyeccion;
+import ar.edu.um.programacion2.cinemacenter.service.CantidadVentasPelicula;
+import ar.edu.um.programacion2.cinemacenter.service.PeliculaService;
+import ar.edu.um.programacion2.cinemacenter.service.VentaService;
 import ar.edu.um.programacion2.cinemacenter.web.rest.errors.BadRequestAlertException;
 
 import io.github.jhipster.web.util.HeaderUtil;
@@ -22,8 +27,11 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
@@ -41,14 +49,21 @@ public class VentaResource {
     
     @Value("${jhipster.clientApp.name}")
     private String applicationName;
-
+    
+    @Autowired
     private final VentaRepository ventaRepository;
+    
+    @Autowired
+    private  VentaService ventaservice;
 
     @Autowired
     private ButacaRepository butacarepository;
     
     @Autowired
     private ProyeccionRepository proyeccionrepository;
+    
+    @Autowired
+    private PeliculaService peliculaservice;
     
 
     public VentaResource(VentaRepository ventaRepository) {
@@ -133,6 +148,37 @@ public class VentaResource {
         log.debug("REST request to get all Ventas");
         return ventaRepository.findAll();
     }
+    
+       
+    @GetMapping("/ventas/reportes/porango/{inicio}/{fin}")
+    public List<Venta> getAllVentasporrango(@PathVariable LocalDate inicio,@PathVariable LocalDate fin) {
+        log.debug("REST request to get all Ventas: {0} {1}", inicio,fin);
+        List<Venta> todaslasventas = new ArrayList<Venta>();
+        todaslasventas = ventaservice.buscarPorFecha(inicio, fin);
+        System.out.print("ESTAS SON TODAS LAS PROYECCIONES:"+todaslasventas);
+                
+        return todaslasventas;
+    }
+    
+    @GetMapping("/ventas/reportes/porangoyproyeccion/{proyeccion}/{inicio}/{fin}")
+    public List<Venta> getAllVentasporrango(@PathVariable Long proyeccion,@PathVariable LocalDate inicio,@PathVariable LocalDate fin) {
+        log.debug("REST request to get all Ventas: {0} {1} {2}",proyeccion,inicio,fin);
+        List<Venta> todaslasventas = new ArrayList<Venta>();
+        List<Venta> ventasporproyeccion = new ArrayList<Venta>();
+        todaslasventas = ventaservice.buscarPorFecha(inicio, fin);
+        for (int i = 0; i < todaslasventas.size(); i++) {
+        	try {
+    			if(todaslasventas.get(i).getProyeccion().getId().equals(proyeccion))	{
+    				ventasporproyeccion.add(todaslasventas.get(i));
+       	            }
+    		}catch(NullPointerException ex) {
+            	//throw new BadRequestAlertException("NO existe Proyeccion asocicada a esa venta", ENTITY_NAME, "idexists");
+            //No hacemos nada en esta captura de excepcion porque queremos evitar que las ventas sin proyeccion rompan el bucle.	
+    		}
+        }
+                
+        return ventasporproyeccion;
+    }
 
     /**
      * {@code GET  /ventas/:id} : get the "id" venta.
@@ -145,6 +191,19 @@ public class VentaResource {
         log.debug("REST request to get Venta : {}", id);
         Optional<Venta> venta = ventaRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(venta);
+    }
+    
+    @GetMapping("/ventas/rankingproyeccion/{inicio}/{fin}")
+    public List<CantidadProyeccion> getRankingProyeccion(@PathVariable LocalDate inicio,@PathVariable LocalDate fin) {
+    	log.debug("REST request to get all Ventas: {0} {1}", inicio,fin);
+    	
+    	return ventaservice.getRankingProyeccion(inicio,fin);
+    }
+    @GetMapping("/ventas/porpelicula")
+    public List<CantidadVentasPelicula> ventaporpelicula() {
+        //log.debug("REST request to get Venta : {}", id);
+    	List<Pelicula> peliculas = peliculaservice.buscarPorEstado(true);
+    	return ventaservice.cantidadporpelicula(peliculas);
     }
 
     /**

@@ -1,6 +1,7 @@
 package ar.edu.um.programacion2.cinemacenter.repository;
 
 import ar.edu.um.programacion2.cinemacenter.domain.Butaca;
+import ar.edu.um.programacion2.cinemacenter.domain.Sala;
 
 import java.util.List;
 
@@ -15,4 +16,5 @@ import org.springframework.stereotype.Repository;
 public interface ButacaRepository extends JpaRepository<Butaca, Long> {
 
 	public List<Butaca> findByEstado(Boolean estado);
+	public List<Butaca> findBySala(Sala sala);
 }

@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 /**
@@ -131,10 +132,19 @@ public class PeliculaResource {
         List<Proyeccion> proyecciones = proyeccionService.buscarPorFecha(inicio, fin);
         List<Proyeccion> proyecciones2= new ArrayList<>();
         for (int i = 0; i < proyecciones.size() ; i++) {
-        	if(proyecciones.get(i).getPelicula().getId() == id) {
-        		proyecciones2.add(proyecciones.get(i));
+        		//System.out.print("LOS DATOS SON: "+proyecciones.get(i).getPelicula().getId());
+        		try {
+        			if(proyecciones.get(i).getPelicula().getId() == id)	{
+        				proyecciones2.add(proyecciones.get(i));
+        //	            	throw new BadRequestAlertException("NO existe Pelicula en ese rango", ENTITY_NAME, "idexists");
+        	            }
+        				
+        		}catch(NoSuchElementException ex) {
+                	throw new BadRequestAlertException("NO existe Proyeccion en ese rango", ENTITY_NAME, "idexists");
+                	}
         	}
-        }
+        	
+            
         return proyecciones2;
     }
 

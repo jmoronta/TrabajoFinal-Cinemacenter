@@ -1,6 +1,10 @@
 package ar.edu.um.programacion2.cinemacenter.web.rest;
 
+import ar.edu.um.programacion2.cinemacenter.domain.Butaca;
+import ar.edu.um.programacion2.cinemacenter.domain.Pelicula;
 import ar.edu.um.programacion2.cinemacenter.domain.Proyeccion;
+import ar.edu.um.programacion2.cinemacenter.repository.ButacaRepository;
+import ar.edu.um.programacion2.cinemacenter.repository.PeliculaRepository;
 import ar.edu.um.programacion2.cinemacenter.repository.ProyeccionRepository;
 import ar.edu.um.programacion2.cinemacenter.service.PeliculaService;
 import ar.edu.um.programacion2.cinemacenter.service.ProyeccionService;
@@ -43,6 +47,10 @@ public class ProyeccionResource {
     private String applicationName;
     @Autowired
     private final ProyeccionRepository proyeccionRepository;
+    @Autowired
+    private PeliculaRepository pelicularepository;
+    @Autowired
+    private ButacaRepository butacarepository;
 
     public ProyeccionResource(ProyeccionRepository proyeccionRepository) {
         this.proyeccionRepository = proyeccionRepository;
@@ -117,7 +125,7 @@ public class ProyeccionResource {
         return  proyeccioneshoy ;
     }
     
-    @GetMapping("/proyeccions/proyeccioneshoyporango/{inicio}/{fin}")
+    @GetMapping("/proyeccions/hoyporango/{inicio}/{fin}")
     public List<Proyeccion> getProyeccionPorFecha(@PathVariable LocalDate inicio,@PathVariable LocalDate fin) {
         log.debug("REST request to get Proyeccion : {0} {1}", inicio,fin);
         List<Proyeccion> totaldeproyecciones = new ArrayList<Proyeccion>();
@@ -130,7 +138,23 @@ public class ProyeccionResource {
             }
         }
         return proyeccionesporestado;
-    }    
+    }
+    
+    @GetMapping("/proyeccions/porpelicula/{peliculaid}/{inicio}/{fin}")
+    public List<Proyeccion> getProyeccionPorPelicula(@PathVariable Long peliculaid,@PathVariable LocalDate inicio,@PathVariable LocalDate fin) {
+        log.debug("REST request to get Proyeccion : {0} {1} {2}",peliculaid, inicio,fin);
+        Optional<Pelicula> pelicula = pelicularepository.findById(peliculaid);
+        List<Proyeccion> proyecciones =proyeccionRepository.findAllByPeliculaAndFechaComienzoBetween(pelicula.get(), inicio, fin);
+        List<Butaca> butacas;
+        for (Proyeccion proyeccionaux : proyecciones) {
+        	butacas = butacarepository.findBySala(proyeccionaux.getSala());
+        	for (Butaca butacaux:butacas) {
+        		proyeccionaux.addButaca(butacaux);
+        	}
+        	
+        }
+        return proyecciones;
+    }
     /**
      * {@code GET  /proyeccions/:id} : get the "id" proyeccion.
      *

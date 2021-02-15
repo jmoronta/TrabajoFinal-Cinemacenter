@@ -29,4 +29,8 @@ public class PeliculaService {
         List<Pelicula> peliculas = peliculaRepository.findAllByFechaComienzoBetween(inicio,fin);
         return peliculas;
     }
+    public List<Pelicula> buscarPorEstado(Boolean estado) {
+        List<Pelicula> peliculas = peliculaRepository.findAllByEstado(estado);
+        return peliculas;
+    }
 }

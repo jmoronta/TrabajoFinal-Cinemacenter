@@ -17,4 +17,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProyeccionRepository extends JpaRepository<Proyeccion, Long> {
 	public List<Proyeccion> findAllByFechaComienzoBetween(LocalDate inicio, LocalDate fin);
+	public List<Proyeccion> findAllByPeliculaAndFechaComienzoBetween(Pelicula pelicula,LocalDate inicio, LocalDate fin);
 }
